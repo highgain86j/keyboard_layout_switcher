@@ -1,0 +1,10 @@
+[Unit]
+Description=Keyboard layout auto-switcher (GUI)
+After=graphical-session.target
+
+[Service]
+ExecStart=%h/.local/bin/kb-layout-watcher.sh
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

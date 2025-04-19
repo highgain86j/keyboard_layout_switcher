@@ -1,21 +1,20 @@
 # kb-layout-switcher
 
-A modular keyboard layout switching system using systemd and udev. Supports dynamic layout changes based on:
+This project includes both system-wide and user-session-based keyboard layout switching mechanisms using `systemd`, `udev`, and user services.
 
-- Intel Mac hardware detection
-- Standard PC fallback
-- Apple USB keyboard hotplug on PC
+## Features
 
-## Usage
+- Detect Intel Mac hardware and configure layout accordingly
+- Use PC layout by default on non-Mac hardware
+- Dynamically switch to Mac layout when Apple USB keyboard is plugged in
+- Restore PC layout when Apple keyboard is removed
+- GUI session layout updated live via user-level watcher
 
-Enable the systemd units after installing:
+## Installation
 
-```bash
-sudo systemctl daemon-reexec
-sudo systemctl enable hw-IntelMac.service kb-PC.service kb-Mac.service
-```
-
-Place the udev rule in `/etc/udev/rules.d/`.
+- `make install_system` – Installs the systemd and udev components
+- `make install_user` – Installs the user service for GUI layout switching
+- `make install` – Installs both
 
 ## License
 
