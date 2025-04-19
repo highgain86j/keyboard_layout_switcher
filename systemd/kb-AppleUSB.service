@@ -1,0 +1,11 @@
+[Unit]
+Description=Handle Apple USB keyboard plug-in
+ConditionInactive=hw-IntelMac.service
+ConditionActive=kb-PC.service
+Conflicts=kb-PC.service
+Before=kb-Mac.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/kb-appleusb-toggle.sh
+RemainAfterExit=yes

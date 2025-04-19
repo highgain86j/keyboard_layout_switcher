@@ -1,0 +1,10 @@
+[Unit]
+Description=Detect and tune for Intel Mac hardware
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/hw-intelmac-detect.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

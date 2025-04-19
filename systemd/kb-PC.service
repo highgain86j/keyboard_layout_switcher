@@ -1,0 +1,13 @@
+[Unit]
+Description=Set PC keyboard layout
+After=hw-IntelMac.service
+ConditionInactive=hw-IntelMac.service
+Conflicts=kb-Mac.service kb-AppleUSB.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/kb-set.sh pc
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

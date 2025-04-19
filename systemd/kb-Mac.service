@@ -1,0 +1,13 @@
+[Unit]
+Description=Set Mac keyboard layout
+After=hw-IntelMac.service
+ConditionActive=hw-IntelMac.service
+Conflicts=kb-PC.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/kb-set.sh mac
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
